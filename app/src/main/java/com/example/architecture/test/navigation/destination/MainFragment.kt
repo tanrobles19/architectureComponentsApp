@@ -5,18 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import com.example.architecture.test.R
+import com.example.architecture.test.databinding.FragmentMainBinding
 import com.example.architecture.test.persistence.AppDataBase
 import com.example.architecture.test.persistence.entity.Movie
 import com.example.architecture.test.viewmodel.MovieViewModel
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MainFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MainFragment : Fragment() {
+
+    private lateinit var _binding: FragmentMainBinding
 
     private lateinit var movieViewModel: MovieViewModel
 
@@ -27,9 +23,12 @@ class MainFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val addMovie = this.activity?.findViewById<Button>(R.id.addNewMovieButton)
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        val view = _binding.root
 
-        addMovie?.setOnClickListener {
+        val addMovie = _binding.addNewMovieButton
+
+        addMovie.setOnClickListener {
             addNewMovie()
         }
 
@@ -37,8 +36,8 @@ class MainFragment : Fragment() {
         val movieDao  = AppDataBase.getInstance(application).movieDao()
         this.movieViewModel = MovieViewModel(movieDao)
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        return view
+
     }
 
     fun addNewMovie() {

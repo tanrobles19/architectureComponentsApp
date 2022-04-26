@@ -2,14 +2,17 @@ package com.example.architecture.test.navigation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.architecture.test.R
-import com.example.architecture.test.viewmodel.MovieViewModel
+import com.example.architecture.test.databinding.ActivityMainBinding
 
 class EntryPointActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
     }
 
 }
