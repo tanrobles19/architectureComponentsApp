@@ -15,3 +15,8 @@ https://developer.android.com/training/data-storage/room
 
 We need to add kapt plugin
     id 'kotlin-kapt'
+
+
+View Binding
+
+Enable view binding in the module gradle, buildFeatures, viewBinding = true
