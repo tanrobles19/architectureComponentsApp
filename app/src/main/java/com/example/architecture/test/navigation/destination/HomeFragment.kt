@@ -15,14 +15,12 @@ class HomeFragment : Fragment() {
 
     private lateinit var _binding: FragmentMainBinding
 
-    private lateinit var movieViewModel: MovieViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
 
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = _binding.root
@@ -30,24 +28,15 @@ class HomeFragment : Fragment() {
         val addMovie = _binding.addNewMovieButton
 
         addMovie.setOnClickListener {
-            addNewMovie()
+            destinationCreateNewMovie()
         }
 
-        val application = requireNotNull(this.activity).application
-        val movieDao  = AppDataBase.getInstance(application).movieDao()
-        this.movieViewModel = MovieViewModel(movieDao)
-
         return view
-
     }
 
-    fun addNewMovie() {
-
+    fun destinationCreateNewMovie() {
         val direction = HomeFragmentDirections.actionHomefragmentToCreateNewMovie()
         this.view?.findNavController()?.navigate(direction)
-
-        val movie = Movie("Matrix", "description text")
-        this.movieViewModel.createNewMovie(movie)
-    }
+    }// end fun destinationCreateNewMovie()
 
 }
