@@ -3,11 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/HomeFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.architecture.test.navigation.destination.MainFragment"
+        android:id="@+id/HomeFragment"
+        android:name="com.example.architecture.test.navigation.destination.HomeFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_homefragment_to_createNewMovie"
+            app:destination="@id/createNewMovie" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNewMovie"
+        android:name="com.example.architecture.test.navigation.destination.CreateNewMovie"
+        android:label="CreateNewMovie"
+        tools:layout="@layout/activity_main"/>
 </navigation>

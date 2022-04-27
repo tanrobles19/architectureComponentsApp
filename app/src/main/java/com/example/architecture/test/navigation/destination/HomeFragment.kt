@@ -5,12 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.architecture.test.databinding.FragmentMainBinding
 import com.example.architecture.test.persistence.AppDataBase
 import com.example.architecture.test.persistence.entity.Movie
 import com.example.architecture.test.viewmodel.MovieViewModel
 
-class MainFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     private lateinit var _binding: FragmentMainBinding
 
@@ -41,6 +42,10 @@ class MainFragment : Fragment() {
     }
 
     fun addNewMovie() {
+
+        val direction = HomeFragmentDirections.actionHomefragmentToCreateNewMovie()
+        this.view?.findNavController()?.navigate(direction)
+
         val movie = Movie("Matrix", "description text")
         this.movieViewModel.createNewMovie(movie)
     }
