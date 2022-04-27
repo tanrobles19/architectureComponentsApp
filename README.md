@@ -20,3 +20,9 @@ We need to add kapt plugin
 View Binding
 
 Enable view binding in the module gradle, buildFeatures, viewBinding = true
+
+RecyclerView Implementation
+
+based on this codelab
+
+https://developer.android.google.cn/codelabs/basic-android-kotlin-training-affirmations-app#0
