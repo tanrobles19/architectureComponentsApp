@@ -31,7 +31,8 @@ class CreateNewMovie : Fragment() {
         this.movieViewModel = MovieViewModel(movieDao)
 
         binding.createNewMovieButton.setOnClickListener {
-            createNewMovie()
+            createNewMovie(binding.movieNameTextView.text.toString())
+            binding.movieNameTextView.text.clear()
         }
 
         this.movieViewModel.movieList.observe(viewLifecycleOwner) {
@@ -45,8 +46,8 @@ class CreateNewMovie : Fragment() {
         return binding.root
     }
 
-    fun createNewMovie() {
-        val movie = Movie("Matrix", "description text")
+    fun createNewMovie(name: String) {
+        val movie = Movie(name, "description text")
         this.movieViewModel.createNewMovie(movie)
     }
 

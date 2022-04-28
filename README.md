@@ -26,3 +26,5 @@ RecyclerView Implementation
 based on this codelab
 
 https://developer.android.google.cn/codelabs/basic-android-kotlin-training-affirmations-app#0
+
+ViewModel and LiveData
