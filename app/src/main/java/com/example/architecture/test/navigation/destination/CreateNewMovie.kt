@@ -34,10 +34,11 @@ class CreateNewMovie : Fragment() {
             createNewMovie()
         }
 
-        val list = arrayOf("Matrix", "Abraham", "El Sicario", "Tiempos Violentos", "Avengers", "Rambo", "Terminator", "El senor de los anillos",
-            "Matrix", "Abraham", "El Sicario", "Tiempos Violentos", "Avengers", "Rambo", "Terminator", "Jesus de Nazareth")
+        this.movieViewModel.movieList.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
 
-        adapter = MovieAdapter(list)
+        adapter = MovieAdapter(this.movieViewModel)
 
         binding.movieListRecyclerView.adapter = adapter
 

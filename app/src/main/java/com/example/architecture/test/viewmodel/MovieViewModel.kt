@@ -9,6 +9,8 @@ class MovieViewModel(movieDao: MovieDao) : ViewModel() {
 
     val dao = movieDao
 
+    val movieList = dao.getAllMovies()
+
     private var viewModelJob = Job()
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)

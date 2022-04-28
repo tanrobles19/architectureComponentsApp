@@ -1,5 +1,6 @@
 package com.example.architecture.test.persistence.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -10,7 +11,7 @@ import com.example.architecture.test.persistence.entity.Movie
 interface MovieDao {
 
     @Query("SELECT * FROM movie")
-    fun getAllMovies(): List<Movie>
+    fun getAllMovies(): LiveData<List<Movie>>
 
     @Insert
     fun insertNewMovie(movie: Movie)
