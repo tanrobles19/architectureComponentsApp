@@ -15,6 +15,15 @@ class HomeFragment : Fragment() {
 
     private lateinit var _binding: FragmentMainBinding
 
+    private val remoteApi = OneBibleApplication.remoteApi
+
+
+
+
+
+
+    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
