@@ -11,12 +11,19 @@ import com.example.architecture.test.databinding.FragmentMainBinding
 import com.example.architecture.test.persistence.AppDataBase
 import com.example.architecture.test.persistence.entity.Movie
 import com.example.architecture.test.viewmodel.MovieViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
     private lateinit var _binding: FragmentMainBinding
 
     private val remoteApi = TestApplication.remoteApi
+
+    private var viewModelJob = Job()
+    private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +39,16 @@ class HomeFragment : Fragment() {
 
         addMovie.setOnClickListener {
 //            destinationCreateNewMovie()
-            val result = remoteApi.getAudioBookInfoSynchronously()
+
+            uiScope.launch {
+                CoroutineScope(Dispatchers.IO).launch {
+                    val result = remoteApi.getAudioBookInfoSynchronously()
+                    if(result != null) {
+
+                    }
+                }
+            }
+
         }
 
         return view

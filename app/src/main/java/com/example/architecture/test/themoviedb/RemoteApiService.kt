@@ -24,7 +24,7 @@ interface RemoteApiService {
 //  @POST("users/login")
 //  suspend fun loginUser(@Body request: LoginRequest): LoginResponse
 
-    @GET("audio")
+    @GET("now_playing")
     fun getAudioBookInfoSynchronously(
         @Query("api_key") api_key: String,
         @Query("language") language: String,
