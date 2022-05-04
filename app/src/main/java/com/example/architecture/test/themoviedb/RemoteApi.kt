@@ -7,7 +7,7 @@ import com.example.architecture.test.themoviedb.model.Success
  * Holds decoupled logic for all the API calls for OneBible endpoint
  */
 
-const val BASE_URL = "https://api.themoviedb.org/3/movie/now_playing"
+const val BASE_URL = "https://api.themoviedb.org/3/movie/now_playing/"
 
 class RemoteApi(private val apiService: RemoteApiService) {
 
