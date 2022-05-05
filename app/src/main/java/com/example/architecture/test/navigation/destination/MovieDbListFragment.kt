@@ -25,16 +25,21 @@ class MovieDbListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View {
         _binding = MovieListLayoutBinding.inflate(inflater, container, false)
 
-        uiScope.launch {
-            CoroutineScope(Dispatchers.IO).launch {
-                val movieList = remoteApi.getAudioBookInfoSynchronously()
-                if(movieList != null) {
-
-                }
-            }
-        }
+        getMovieList()
 
         return _binding.root
     }
+
+    private fun getMovieList() {
+        uiScope.launch {
+            CoroutineScope(Dispatchers.IO).launch {
+                val movieList = remoteApi.getAudioBookInfoSynchronously()
+                if (movieList != null) {
+
+                }
+            }
+        }// end launch Coroutine
+
+    }// end fun getMovieList()
 
 }
