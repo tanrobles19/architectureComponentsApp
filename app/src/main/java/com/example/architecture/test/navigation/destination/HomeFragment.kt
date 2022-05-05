@@ -44,18 +44,6 @@ class HomeFragment : Fragment() {
 
         addMovie.setOnClickListener {
             destinationCreateNewMovie()
-
-//            uiScope.launch {
-//                CoroutineScope(Dispatchers.IO).launch {
-//                    val result = remoteApi.getAudioBookInfoSynchronously()
-//                    if(result != null) {
-//
-//
-//
-//                    }
-//                }
-//            }
-
         }
 
         return view
