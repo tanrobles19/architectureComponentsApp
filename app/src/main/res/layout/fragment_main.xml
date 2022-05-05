@@ -6,8 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".navigation.destination.HomeFragment">
 
-        <TextView
-            android:id="@+id/textView"
+        <Button
+            android:id="@+id/addNewMoviesButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Adding new Movies"
@@ -17,7 +17,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/addNewMovieButton"
+            android:id="@+id/movieListButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
@@ -26,6 +26,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/addNewMoviesButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

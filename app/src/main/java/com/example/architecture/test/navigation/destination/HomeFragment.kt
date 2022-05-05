@@ -35,19 +35,26 @@ class HomeFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = _binding.root
 
-        val addMovie = _binding.addNewMovieButton
+        val addMovie = _binding.addNewMoviesButton
+        val movieList = _binding.movieListButton
+
+        movieList.setOnClickListener {
+            destinationToMovieDbListFragment()
+        }
 
         addMovie.setOnClickListener {
-//            destinationCreateNewMovie()
+            destinationCreateNewMovie()
 
-            uiScope.launch {
-                CoroutineScope(Dispatchers.IO).launch {
-                    val result = remoteApi.getAudioBookInfoSynchronously()
-                    if(result != null) {
-
-                    }
-                }
-            }
+//            uiScope.launch {
+//                CoroutineScope(Dispatchers.IO).launch {
+//                    val result = remoteApi.getAudioBookInfoSynchronously()
+//                    if(result != null) {
+//
+//
+//
+//                    }
+//                }
+//            }
 
         }
 
@@ -58,5 +65,10 @@ class HomeFragment : Fragment() {
         val direction = HomeFragmentDirections.actionHomefragmentToCreateNewMovie()
         this.view?.findNavController()?.navigate(direction)
     }// end fun destinationCreateNewMovie()
+
+    fun destinationToMovieDbListFragment() {
+        val direction = HomeFragmentDirections.actionHomeFragmentToMovieDbListFragment()
+        this.view?.findNavController()?.navigate(direction)
+    }
 
 }
