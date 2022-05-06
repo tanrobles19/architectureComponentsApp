@@ -1,5 +1,30 @@
 # architectureComponentsApp
 
+The app was built using Android Jetpack libraries that follow best practices recommended by the Android team.
+
+The app is based on Navigation Component, following the principle of Single Activity apps, 
+the framework allows to work with multiple fragments(destinations), 
+maybe one of the remarkables advantages is avoiding to handle the Fragment transitions manually.
+
+#Coroutines and Retrofit
+
+The MovieDB Rest API
+
+okhttp3
+
+#Persistence Layer
+
+Kotlin Serialization
+
+#UI design
+
+Data Binding
+
+ConstraintLayouts
+
+ViewModels
+
+
 Room Dependecies
 
 def roomVersion = "2.4.2"
