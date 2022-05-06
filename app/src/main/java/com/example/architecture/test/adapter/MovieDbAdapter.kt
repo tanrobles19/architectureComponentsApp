@@ -10,20 +10,21 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.architecture.test.R
 import com.example.architecture.test.persistence.entity.Movie
+import com.example.architecture.test.viewmodel.MovieViewModel
 
-class MovieDbAdapter() : ListAdapter<Movie, MovieDbAdapter.ViewHolder>(MovieDiffCallBack()){
+class MovieDbAdapter(val movieViewModel: MovieViewModel) : ListAdapter<Movie, MovieDbAdapter.ViewHolder>(MovieDiffCallBack()){
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val movieTitle: TextView = view.findViewById(R.id.movieDbTitle)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.moviedb_row_item, parent)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.moviedb_row_item, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.movieTitle.text = "Test Rest API list"
+        holder.movieTitle.text = movieViewModel.movieList.value?.get(position)?.name ?: "no name"
     }
 
     class MovieDiffCallBack : DiffUtil.ItemCallback<Movie>() {
