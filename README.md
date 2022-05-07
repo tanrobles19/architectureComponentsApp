@@ -26,7 +26,7 @@ ConstraintLayouts
 
 ViewModels
 
-Demo ScreenShots
+## Demo ScreenShots
 
 ![This is an image](https://github.com/tanrobles19/architectureComponentsApp/blob/dev/screenshots_demo/home.png) 
 ![This is an image](https://github.com/tanrobles19/architectureComponentsApp/blob/dev/screenshots_demo/movie_list.png)
