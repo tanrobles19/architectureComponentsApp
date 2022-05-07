@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.architecture.test.R
-import com.example.architecture.test.persistence.entity.Movie
-import com.example.architecture.test.viewmodel.MovieViewModel
+import com.example.architecture.test.themoviedb.model.Result
 
-class MovieDbAdapter(val movieViewModel: MovieViewModel) : ListAdapter<Movie, MovieDbAdapter.ViewHolder>(MovieDiffCallBack()){
+class MovieDbAdapter(val movieDbList: List<Result>) : ListAdapter<Result, MovieDbAdapter.ViewHolder>(MovieDiffCallBack()){
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val movieTitle: TextView = view.findViewById(R.id.movieDbTitle)
@@ -24,15 +23,15 @@ class MovieDbAdapter(val movieViewModel: MovieViewModel) : ListAdapter<Movie, Mo
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.movieTitle.text = movieViewModel.movieList.value?.get(position)?.name ?: "no name"
+        holder.movieTitle.text = movieDbList.get(position).title
     }
 
-    class MovieDiffCallBack : DiffUtil.ItemCallback<Movie>() {
-        override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+    class MovieDiffCallBack : DiffUtil.ItemCallback<Result>() {
+        override fun areItemsTheSame(oldItem: Result, newItem: Result): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+        override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean {
             return oldItem == newItem
         }
     }

@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import com.example.architecture.test.adapter.MovieDbAdapter
 import com.example.architecture.test.application.TestApplication
 import com.example.architecture.test.databinding.MovieListLayoutBinding
-import com.example.architecture.test.persistence.AppDataBase
-import com.example.architecture.test.viewmodel.MovieViewModel
+import com.example.architecture.test.themoviedb.model.Result
+import com.example.architecture.test.themoviedb.model.Success
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -23,7 +23,7 @@ class MovieDbListFragment : Fragment() {
 
     private val viewModelJob = Job()
 
-    private lateinit var moviewViewModel: MovieViewModel
+//    private lateinit var movieDbViewModel: MovieDbViewModel
     private lateinit var adapter : MovieDbAdapter
 
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
@@ -31,30 +31,27 @@ class MovieDbListFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View {
         _binding = MovieListLayoutBinding.inflate(inflater, container, false)
 
-        val application = requireNotNull(this.activity).application
-        val moviewDao = AppDataBase.getInstance(application).movieDao()
-        this.moviewViewModel = MovieViewModel(moviewDao)
-
-        adapter = MovieDbAdapter(this.moviewViewModel)
-
-        _binding.recyclerViewMovieList.adapter = adapter
-
-        this.moviewViewModel.movieList.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
-
         getMovieList()
 
         return _binding.root
     }
 
+    private fun loadData(movieDbList : List<Result>) {
+
+        CoroutineScope(Dispatchers.Main).launch {
+            adapter = MovieDbAdapter(movieDbList)
+            _binding.recyclerViewMovieList.adapter = adapter
+            adapter.submitList(movieDbList)
+        }
+
+    }// end fun loadData()
+
     private fun getMovieList() {
         uiScope.launch {
             CoroutineScope(Dispatchers.IO).launch {
                 val movieList = remoteApi.getAudioBookInfoSynchronously()
-                if (movieList != null) {
-
-                }
+                if (movieList is Success<*>)
+                    loadData(movieList.data.results)
             }
         }// end launch Coroutine
 

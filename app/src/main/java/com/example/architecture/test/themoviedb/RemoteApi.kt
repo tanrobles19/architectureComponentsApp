@@ -22,7 +22,7 @@ class RemoteApi(private val apiService: RemoteApiService) {
         //getting the response object
         val responseData = a.body()
 
-        Success(responseData?.toString())
+        responseData?.let { Success(it) }
 
     } catch (error: Throwable) {
         Failure(error)
