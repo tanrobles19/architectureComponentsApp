@@ -6,17 +6,17 @@ The app is based on Navigation Component, following the principle of Single Acti
 the framework allows to work with multiple fragments(destinations), 
 maybe one of the remarkables advantages is avoiding to handle the Fragment transitions manually.
 
-#Coroutines and Retrofit
+## Coroutines and Retrofit
 
 The MovieDB Rest API
 
 okhttp3
 
-#Persistence Layer
+## Persistence Layer
 
 Kotlin Serialization
 
-#UI design
+## UI design
 
 Data Binding
 
@@ -55,14 +55,14 @@ https://developer.android.google.cn/codelabs/basic-android-kotlin-training-affir
 ViewModel and LiveData
 
 
-API
+## API
 
 TheMovieDB API
 https://www.themoviedb.org/
 Documentation
 https://developers.themoviedb.org/3/getting-started/introduction
 
-Clave de la API (v3 auth) = e23ece4da67144877ca7da9d18c13b37
+Clave de la API (v3 auth) = XXXXX
 
 Get Now Playing 
 https://api.themoviedb.org/3/movie/now_playing?api_key=e23ece4da67144877ca7da9d18c13b37&language=en-US&page=1
