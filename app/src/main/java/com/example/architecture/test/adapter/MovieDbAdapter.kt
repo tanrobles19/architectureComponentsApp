@@ -3,6 +3,7 @@ package com.example.architecture.test.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
@@ -15,6 +16,7 @@ class MovieDbAdapter(val movieDbList: List<Result>) : ListAdapter<Result, MovieD
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val movieTitle: TextView = view.findViewById(R.id.movieDbTitle)
+        val itemImage: ImageView = view.findViewById(R.id.item_image)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -24,6 +26,7 @@ class MovieDbAdapter(val movieDbList: List<Result>) : ListAdapter<Result, MovieD
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.movieTitle.text = movieDbList.get(position).title
+        holder.itemImage.setImageResource(R.drawable.image_1)
     }
 
     class MovieDiffCallBack : DiffUtil.ItemCallback<Result>() {
