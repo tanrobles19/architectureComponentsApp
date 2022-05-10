@@ -72,3 +72,10 @@ Clave de la API (v3 auth) = XXXXX
 
 Get Now Playing 
 https://api.themoviedb.org/3/movie/now_playing?api_key=e23ece4da67144877ca7da9d18c13b37&language=en-US&page=1
+
+Movie Image
+
+Sample: Sonic 2
+
+backdrop_path
+https://image.tmdb.org/t/p/w500/egoyMDLqCxzjnSrWOz50uLlJWmD.jpg
