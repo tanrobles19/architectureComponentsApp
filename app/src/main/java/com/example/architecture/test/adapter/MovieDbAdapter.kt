@@ -23,6 +23,11 @@ class MovieDbAdapter(val movieDbList: List<Result>) : ListAdapter<Result, MovieD
         val view = LayoutInflater.from(parent.context).inflate(R.layout.moviedb_row_item, parent, false)
         return ViewHolder(view)
     }
+//
+//    cambiar icono de Launch - Change the app icon
+//
+//    cargar la imagen Real usando una libreria
+
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.movieTitle.text = movieDbList.get(position).title
