@@ -20,6 +20,10 @@ class MovieDbAdapter(val movieDbList: List<Result>) : ListAdapter<Result, MovieD
         val itemImage: ImageView = view.findViewById(R.id.item_image)
     }
 
+//    new destination movie detail.
+//    adding toolbar.
+//    home screen new design.
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.moviedb_row_item, parent, false)
         return ViewHolder(view)
