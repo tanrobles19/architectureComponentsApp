@@ -26,5 +26,14 @@
         android:id="@+id/movieDbListFragment"
         android:name="com.example.architecture.test.navigation.destination.MovieDbListFragment"
         android:label="MovieDbListFragment"
-        tools:layout="@layout/movie_list_layout"/>
+        tools:layout="@layout/movie_list_layout">
+        <action
+            android:id="@+id/action_movieDbListFragment_to_movieDetail"
+            app:destination="@id/movieDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetail"
+        android:name="com.example.architecture.test.navigation.destination.MovieDetail"
+        android:label="MovieDetail"
+        tools:layout="@layout/movie_detail_layout"/>
 </navigation>
