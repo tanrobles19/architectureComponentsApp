@@ -41,9 +41,9 @@ class MovieDbListFragment : Fragment() {
     private fun loadData(movieDbList : List<Result>) {
 
         CoroutineScope(Dispatchers.Main).launch {
-            adapter = MovieDbAdapter(movieDbList, MovieDbAdapter.MovieListener { id ->
+            adapter = MovieDbAdapter(movieDbList, MovieDbAdapter.MovieListener { movieId ->
                 Toast.makeText(context, "${id}", Toast.LENGTH_LONG).show()
-                destination()
+                destination(movieId)
             })
             _binding.recyclerViewMovieList.adapter = adapter
             adapter.submitList(movieDbList)
@@ -51,8 +51,8 @@ class MovieDbListFragment : Fragment() {
 
     }// end fun loadData()
 
-    private fun destination() {
-        val destination = MovieDbListFragmentDirections.actionMovieDbListFragmentToMovieDetail()
+    private fun destination(id : Long) {
+        val destination = MovieDbListFragmentDirections.actionMovieDbListFragmentToMovieDetail(id)
         this.view?.findNavController()?.navigate(destination)
     }
 

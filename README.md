@@ -6,6 +6,10 @@ The app is based on Navigation Component, following the principle of Single Acti
 the framework allows to work with multiple fragments(destinations), 
 maybe one of the remarkables advantages is avoiding to handle the Fragment transitions manually.
 
+## Jetpack Navigation Component
+
+Navigation Component + SafeArgs to attach data between destinations.
+
 ## Coroutines and Retrofit
 
 The MovieDB Rest API
@@ -53,6 +57,8 @@ View Binding
 Enable view binding in the module gradle, buildFeatures, viewBinding = true
 
 RecyclerView Implementation
+
+Using DataBinding with the RecyclerView (remove calls to findViewById()). Create a Binding Adapter.
 
 based on this codelab
 
