@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.architecture.test.adapter.MovieDbAdapter
 import com.example.architecture.test.application.TestApplication
@@ -39,7 +40,9 @@ class MovieDbListFragment : Fragment() {
     private fun loadData(movieDbList : List<Result>) {
 
         CoroutineScope(Dispatchers.Main).launch {
-            adapter = MovieDbAdapter(movieDbList)
+            adapter = MovieDbAdapter(movieDbList, MovieDbAdapter.MovieListener { id ->
+                Toast.makeText(context, "${id}", Toast.LENGTH_LONG).show()
+            })
             _binding.recyclerViewMovieList.adapter = adapter
             adapter.submitList(movieDbList)
         }

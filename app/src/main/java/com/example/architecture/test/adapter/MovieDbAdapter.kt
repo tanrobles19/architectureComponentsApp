@@ -48,8 +48,8 @@ class MovieDbAdapter(val movieDbList: List<Result>, val movieListener: MovieList
         }
     }
 
-    class MovieListener(val clickListener: (sleepId: Long) -> Unit) {
-        fun onClick(night: Result) = clickListener(night.id)
+    class MovieListener(val clickListener: (movieId: Long) -> Unit) {
+        fun onClick(movie: Result) = clickListener(movie.id)
     }
 
 }
