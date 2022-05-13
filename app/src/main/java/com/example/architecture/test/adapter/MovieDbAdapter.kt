@@ -9,11 +9,12 @@ import com.example.architecture.test.databinding.MoviedbRowItemBinding
 import com.example.architecture.test.themoviedb.model.Result
 import com.squareup.picasso.Picasso
 
-class MovieDbAdapter(val movieDbList: List<Result>) : ListAdapter<Result, MovieDbAdapter.ViewHolder>(MovieDiffCallBack()){
+class MovieDbAdapter(val movieDbList: List<Result>, val movieListener: MovieListener) : ListAdapter<Result, MovieDbAdapter.ViewHolder>(MovieDiffCallBack()){
 
     class ViewHolder private constructor(val binding: MoviedbRowItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Result) {
+        fun bind(item: Result, movieListener: MovieListener) {
+            binding.movieClickListener = movieListener
             binding.movie = item
             Picasso.get().load("https://image.tmdb.org/t/p/w500" + item.backdrop_path).into(binding.itemImage)
         }
@@ -34,7 +35,7 @@ class MovieDbAdapter(val movieDbList: List<Result>) : ListAdapter<Result, MovieD
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val result =  movieDbList.get(position)
-        holder.bind(result)
+        holder.bind(result, movieListener)
     }
 
     class MovieDiffCallBack : DiffUtil.ItemCallback<Result>() {
@@ -47,7 +48,7 @@ class MovieDbAdapter(val movieDbList: List<Result>) : ListAdapter<Result, MovieD
         }
     }
 
-    class SleepNightListener(val clickListener: (sleepId: Long) -> Unit) {
+    class MovieListener(val clickListener: (sleepId: Long) -> Unit) {
         fun onClick(night: Result) = clickListener(night.id)
     }
 
