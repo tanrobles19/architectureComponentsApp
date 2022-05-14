@@ -10,7 +10,7 @@ maybe one of the remarkables advantages is avoiding to handle the Fragment trans
 
 Navigation Component + SafeArgs to attach data between destinations.
 
-## Coroutines and Retrofit
+## Coroutines + Retrofit + TheMovieDB Rest API 
 
 The MovieDB Rest API
 
@@ -24,7 +24,7 @@ Room
 
 ## UI design
 
-Data Binding
+Data Binding, View Binding
 
 ConstraintLayouts
 
