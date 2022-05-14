@@ -32,8 +32,8 @@ ViewModels
 
 ## Demo ScreenShots
 
-![This is an image](https://github.com/tanrobles19/architectureComponentsApp/blob/dev/screenshots_demo/home.png) 
-![This is an image](https://github.com/tanrobles19/architectureComponentsApp/blob/dev/screenshots_demo/movie_list.png)
+![This is an image](https://github.com/tanrobles19/architectureComponentsApp/blob/dev_version_02/screenshots_demo/version2/home_screem.png) 
+![This is an image](https://github.com/tanrobles19/architectureComponentsApp/blob/dev_version_02/screenshots_demo/version2/movie_list.png)
 
 Room Dependecies
 
