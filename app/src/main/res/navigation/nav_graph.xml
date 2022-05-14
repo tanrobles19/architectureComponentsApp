@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/HomeFragment"
         android:name="com.example.architecture.test.navigation.destination.HomeFragment"
-        android:label="fragment_main"
+        android:label="Movies"
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_homefragment_to_createNewMovie"
@@ -20,12 +20,12 @@
     <fragment
         android:id="@+id/createNewMovie"
         android:name="com.example.architecture.test.navigation.destination.CreateNewMovie"
-        android:label="CreateNewMovie"
+        android:label="Add new Movies"
         tools:layout="@layout/activity_main"/>
     <fragment
         android:id="@+id/movieDbListFragment"
         android:name="com.example.architecture.test.navigation.destination.MovieDbListFragment"
-        android:label="MovieDbListFragment"
+        android:label="Movie List"
         tools:layout="@layout/movie_list_layout">
         <action
             android:id="@+id/action_movieDbListFragment_to_movieDetail"
@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/movieDetail"
         android:name="com.example.architecture.test.navigation.destination.MovieDetailFragment"
-        android:label="MovieDetail"
+        android:label="Movie Detail"
         tools:layout="@layout/movie_detail_layout">
         <argument
             android:name="movieID"
