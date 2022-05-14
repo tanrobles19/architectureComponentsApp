@@ -1,12 +1,13 @@
 package com.example.architecture.test.navigation.destination
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.onNavDestinationSelected
+import com.example.architecture.test.R
 import com.example.architecture.test.adapter.MovieDbAdapter
 import com.example.architecture.test.application.TestApplication
 import com.example.architecture.test.databinding.MovieListLayoutBinding
@@ -31,6 +32,7 @@ class MovieDbListFragment : Fragment() {
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View {
+        setHasOptionsMenu(true)
         _binding = MovieListLayoutBinding.inflate(inflater, container, false)
 
         getMovieList()
@@ -66,5 +68,14 @@ class MovieDbListFragment : Fragment() {
         }// end launch Coroutine
 
     }// end fun getMovieList()
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_movie, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return item.onNavDestinationSelected(findNavController()) || super.onOptionsItemSelected(item)
+    }
+
 
 }
