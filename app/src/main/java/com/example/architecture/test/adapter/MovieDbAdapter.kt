@@ -1,29 +1,41 @@
 package com.example.architecture.test.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.architecture.test.R
+import com.example.architecture.test.databinding.MoviedbRowItemBinding
 import com.example.architecture.test.themoviedb.model.Result
+import com.squareup.picasso.Picasso
 
-class MovieDbAdapter(val movieDbList: List<Result>) : ListAdapter<Result, MovieDbAdapter.ViewHolder>(MovieDiffCallBack()){
+class MovieDbAdapter(val movieDbList: List<Result>, val movieListener: MovieListener) : ListAdapter<Result, MovieDbAdapter.ViewHolder>(MovieDiffCallBack()){
 
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val movieTitle: TextView = view.findViewById(R.id.movieDbTitle)
-    }
+    class ViewHolder private constructor(val binding: MoviedbRowItemBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(item: Result, movieListener: MovieListener) {
+            binding.movieClickListener = movieListener
+            binding.movie = item
+            Picasso.get().load("https://image.tmdb.org/t/p/w500" + item.backdrop_path).into(binding.itemImage)
+        }
+
+        companion object{
+            fun from(parent: ViewGroup) : ViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = MoviedbRowItemBinding.inflate(layoutInflater, parent, false)
+                return ViewHolder(binding)
+            }
+        }
+
+    }// end constructor()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.moviedb_row_item, parent, false)
-        return ViewHolder(view)
+        return ViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.movieTitle.text = movieDbList.get(position).title
+        val result =  movieDbList.get(position)
+        holder.bind(result, movieListener)
     }
 
     class MovieDiffCallBack : DiffUtil.ItemCallback<Result>() {
@@ -34,6 +46,10 @@ class MovieDbAdapter(val movieDbList: List<Result>) : ListAdapter<Result, MovieD
         override fun areContentsTheSame(oldItem: Result, newItem: Result): Boolean {
             return oldItem == newItem
         }
+    }
+
+    class MovieListener(val clickListener: (movieId: Long) -> Unit) {
+        fun onClick(movie: Result) = clickListener(movie.id)
     }
 
 }

@@ -1,11 +1,12 @@
 package com.example.architecture.test.navigation.destination
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.onNavDestinationSelected
+import com.example.architecture.test.R
 import com.example.architecture.test.application.TestApplication
 import com.example.architecture.test.databinding.FragmentMainBinding
 import com.example.architecture.test.persistence.AppDataBase
@@ -29,8 +30,9 @@ class HomeFragment : Fragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+
+        setHasOptionsMenu(true)
 
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = _binding.root
@@ -57,6 +59,14 @@ class HomeFragment : Fragment() {
     fun destinationToMovieDbListFragment() {
         val direction = HomeFragmentDirections.actionHomeFragmentToMovieDbListFragment()
         this.view?.findNavController()?.navigate(direction)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_movie, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return item.onNavDestinationSelected(findNavController()) || super.onOptionsItemSelected(item)
     }
 
 }

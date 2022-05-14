@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/HomeFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/HomeFragment"
+        android:id="@+id/homeFragment"
         android:name="com.example.architecture.test.navigation.destination.HomeFragment"
-        android:label="fragment_main"
+        android:label="Movies"
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_homefragment_to_createNewMovie"
@@ -20,11 +20,29 @@
     <fragment
         android:id="@+id/createNewMovie"
         android:name="com.example.architecture.test.navigation.destination.CreateNewMovie"
-        android:label="CreateNewMovie"
-        tools:layout="@layout/activity_main"/>
+        android:label="Add new Movies"
+        tools:layout="@layout/create_new_movie"/>
     <fragment
         android:id="@+id/movieDbListFragment"
         android:name="com.example.architecture.test.navigation.destination.MovieDbListFragment"
-        android:label="MovieDbListFragment"
-        tools:layout="@layout/movie_list_layout"/>
+        android:label="Movie List"
+        tools:layout="@layout/movie_list_layout">
+        <action
+            android:id="@+id/action_movieDbListFragment_to_movieDetail"
+            app:destination="@id/movieDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetail"
+        android:name="com.example.architecture.test.navigation.destination.MovieDetailFragment"
+        android:label="Movie Detail"
+        tools:layout="@layout/movie_detail_layout">
+        <argument
+            android:name="movieID"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.architecture.test.navigation.destination.AboutFragment"
+        android:label="AboutFragment"
+        tools:layout="@layout/about_layout"/>
 </navigation>

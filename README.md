@@ -6,7 +6,11 @@ The app is based on Navigation Component, following the principle of Single Acti
 the framework allows to work with multiple fragments(destinations), 
 maybe one of the remarkables advantages is avoiding to handle the Fragment transitions manually.
 
-## Coroutines and Retrofit
+## Jetpack Navigation Component
+
+Navigation Component + SafeArgs to attach data between destinations.
+
+## Coroutines + Retrofit + TheMovieDB Rest API 
 
 The MovieDB Rest API
 
@@ -20,7 +24,7 @@ Room
 
 ## UI design
 
-Data Binding
+Data Binding, View Binding
 
 ConstraintLayouts
 
@@ -28,8 +32,8 @@ ViewModels
 
 ## Demo ScreenShots
 
-![This is an image](https://github.com/tanrobles19/architectureComponentsApp/blob/dev/screenshots_demo/home.png) 
-![This is an image](https://github.com/tanrobles19/architectureComponentsApp/blob/dev/screenshots_demo/movie_list.png)
+![This is an image](https://github.com/tanrobles19/architectureComponentsApp/blob/dev_version_02/screenshots_demo/version2/home_screem.png) 
+![This is an image](https://github.com/tanrobles19/architectureComponentsApp/blob/dev_version_02/screenshots_demo/version2/movie_list.png)
 
 Room Dependecies
 
@@ -54,6 +58,8 @@ Enable view binding in the module gradle, buildFeatures, viewBinding = true
 
 RecyclerView Implementation
 
+Using DataBinding with the RecyclerView (remove calls to findViewById()). Create a Binding Adapter.
+
 based on this codelab
 
 https://developer.android.google.cn/codelabs/basic-android-kotlin-training-affirmations-app#0
@@ -72,3 +78,10 @@ Clave de la API (v3 auth) = XXXXX
 
 Get Now Playing 
 https://api.themoviedb.org/3/movie/now_playing?api_key=e23ece4da67144877ca7da9d18c13b37&language=en-US&page=1
+
+Movie Image
+
+Sample: Sonic 2
+
+backdrop_path
+https://image.tmdb.org/t/p/w500/egoyMDLqCxzjnSrWOz50uLlJWmD.jpg
