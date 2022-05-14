@@ -21,7 +21,7 @@
         android:id="@+id/createNewMovie"
         android:name="com.example.architecture.test.navigation.destination.CreateNewMovie"
         android:label="Add new Movies"
-        tools:layout="@layout/activity_main"/>
+        tools:layout="@layout/create_new_movie"/>
     <fragment
         android:id="@+id/movieDbListFragment"
         android:name="com.example.architecture.test.navigation.destination.MovieDbListFragment"
@@ -40,4 +40,9 @@
             android:name="movieID"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.architecture.test.navigation.destination.AboutFragment"
+        android:label="AboutFragment"
+        tools:layout="@layout/about_layout"/>
 </navigation>

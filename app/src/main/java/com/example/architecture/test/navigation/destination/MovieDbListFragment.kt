@@ -32,7 +32,6 @@ class MovieDbListFragment : Fragment() {
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View {
-        setHasOptionsMenu(true)
         _binding = MovieListLayoutBinding.inflate(inflater, container, false)
 
         getMovieList()
@@ -68,14 +67,5 @@ class MovieDbListFragment : Fragment() {
         }// end launch Coroutine
 
     }// end fun getMovieList()
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_movie, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return item.onNavDestinationSelected(findNavController()) || super.onOptionsItemSelected(item)
-    }
-
 
 }
