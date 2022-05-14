@@ -85,3 +85,8 @@ Sample: Sonic 2
 
 backdrop_path
 https://image.tmdb.org/t/p/w500/egoyMDLqCxzjnSrWOz50uLlJWmD.jpg
+
+
+Version 3.0
+
+The current version introduce Jetpack Compose, the new declarative UI toolkit of Google.
