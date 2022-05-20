@@ -90,3 +90,7 @@ https://image.tmdb.org/t/p/w500/egoyMDLqCxzjnSrWOz50uLlJWmD.jpg
 Version 3.0
 
 The current version introduce Jetpack Compose, the new declarative UI toolkit of Google.
+
+Adding Jetpack Compose to existing code
+
+https://developer.android.com/jetpack/compose/interop/adding

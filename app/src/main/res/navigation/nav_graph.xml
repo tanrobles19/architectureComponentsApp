@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_HomeFragment_to_movieDbListFragment"
             app:destination="@id/movieDbListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_movieListWithCompose"
+            app:destination="@id/movieListWithCompose" />
     </fragment>
     <fragment
         android:id="@+id/createNewMovie"
@@ -45,4 +48,8 @@
         android:name="com.example.architecture.test.navigation.destination.AboutFragment"
         android:label="AboutFragment"
         tools:layout="@layout/about_layout"/>
+    <fragment
+        android:id="@+id/movieListWithCompose"
+        android:name="com.example.architecture.test.navigation.destination.MovieListWithCompose"
+        android:label="MovieListWithCompose" />
 </navigation>

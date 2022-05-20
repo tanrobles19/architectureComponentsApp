@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
 
         val addMovie = _binding.addNewMoviesButton
         val movieList = _binding.movieListButton
+        val movieListCompose = _binding.movieListButtonForJetPackCompose
 
         movieList.setOnClickListener {
             destinationToMovieDbListFragment()
@@ -46,6 +47,10 @@ class HomeFragment : Fragment() {
 
         addMovie.setOnClickListener {
             destinationCreateNewMovie()
+        }
+
+        movieListCompose.setOnClickListener {
+            destinationToMovieListCompose()
         }
 
         return view
@@ -59,6 +64,11 @@ class HomeFragment : Fragment() {
     fun destinationToMovieDbListFragment() {
         val direction = HomeFragmentDirections.actionHomeFragmentToMovieDbListFragment()
         this.view?.findNavController()?.navigate(direction)
+    }
+
+    fun destinationToMovieListCompose() {
+        val destination = HomeFragmentDirections.actionHomeFragmentToMovieListWithCompose()
+        this.view?.findNavController()?.navigate(directions = destination)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
