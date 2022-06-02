@@ -94,3 +94,7 @@ The current version introduce Jetpack Compose, the new declarative UI toolkit of
 Adding Jetpack Compose to existing code
 
 https://developer.android.com/jetpack/compose/interop/adding
+
+Composable Functions
+
+It's good practice to provide a modifier to all the composable functions, as it increases reusability.

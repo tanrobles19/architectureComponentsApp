@@ -14,12 +14,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import com.example.architecture.test.composableScreen.WellnessScreen
 
 class MovieListWithCompose : Fragment() {
 
@@ -35,7 +37,13 @@ class MovieListWithCompose : Fragment() {
     @Preview(showBackground = true, name = "Text Preview")
     @Composable
     fun DefaultPreview() {
-        BuildList()
+//        BuildList()
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colors.background
+        ) {
+            WellnessScreen()
+        }
     }
     @Composable
     fun TestList(names: List<String> = listOf("Eithan", "Issac", "Lu", "Jonathan")) {
@@ -59,7 +67,7 @@ class MovieListWithCompose : Fragment() {
     @Composable
     private fun Greeting(name: String) {
 
-        val expanded = remember { mutableStateOf(false) }
+        val expanded = rememberSaveable { mutableStateOf(false) }
 
         val extraPadding = if (expanded.value) 48.dp else 0.dp
 
