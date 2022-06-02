@@ -46,6 +46,10 @@ android {
         kotlinCompilerExtensionVersion '1.1.1'
     }
 
+    packagingOptions{
+        resources.excludes.add("META-INF/*")
+    }
+
 }
 
 dependencies {
