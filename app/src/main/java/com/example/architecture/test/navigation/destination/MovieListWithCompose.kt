@@ -29,7 +29,8 @@ class MovieListWithCompose : Fragment() {
         inflater: LayoutInflater, container: ViewGroup ?, savedInstanceState: Bundle?): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                BuildList()
+//                BuildList()
+                WellnessScreen()
             }
         }
     }
