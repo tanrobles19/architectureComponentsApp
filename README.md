@@ -98,3 +98,7 @@ https://developer.android.com/jetpack/compose/interop/adding
 Composable Functions
 
 It's good practice to provide a modifier to all the composable functions, as it increases reusability.
+
+We created our first Stateless and Stateful Composables functions based on the unidirectional Data Flow Pattern.
+
+Using ViewModel with Compose, the business logic is refactored inside our ViewModel.
