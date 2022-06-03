@@ -16,11 +16,11 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun WellnessTaskItem(
-    modifier: Modifier = Modifier,
     taskName: String,
-    cheched: Boolean,
+    checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
-    onClose: ()-> Unit
+    onClose: ()-> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Row(
         modifier = modifier,
@@ -32,7 +32,10 @@ fun WellnessTaskItem(
                 .weight(1f)
                 .padding(start = 16.dp)
         )
-        Checkbox(checked = cheched, onCheckedChange = onCheckedChange)
+        Checkbox(
+            checked = checked,
+            onCheckedChange = onCheckedChange
+        )
         IconButton(onClick = onClose) {
             Icon(Icons.Filled.Close, contentDescription = "Close")
         }
@@ -45,7 +48,7 @@ fun WellnessTaskItem(taskName: String, onClose: () -> Unit, modifier: Modifier =
 
     WellnessTaskItem(
         taskName = taskName,
-        cheched = checkedState,
+        checked = checkedState,
         onCheckedChange = { newvalue -> checkedState = newvalue},
         onClose = onClose,
         modifier = modifier,
