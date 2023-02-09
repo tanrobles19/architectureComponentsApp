@@ -35,9 +35,9 @@ class CreateNewMovie : Fragment() {
             binding.movieNameTextView.text.clear()
         }
 
-        this.movieViewModel.movieList.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
+//        this.movieViewModel.movieList.observe(viewLifecycleOwner) {
+//            adapter.submitList(it)
+//        }
 
         adapter = MovieAdapter(this.movieViewModel)
 

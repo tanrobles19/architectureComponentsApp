@@ -21,6 +21,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import com.example.architecture.test.composableScreen.MovieScreen
 import com.example.architecture.test.composableScreen.WellnessScreen
 
 class MovieListWithCompose : Fragment() {
@@ -30,7 +31,8 @@ class MovieListWithCompose : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
 //                BuildList()
-                WellnessScreen()
+//                WellnessScreen()
+                MovieScreen()
             }
         }
     }
@@ -38,12 +40,12 @@ class MovieListWithCompose : Fragment() {
     @Preview(showBackground = true, name = "Text Preview")
     @Composable
     fun DefaultPreview() {
-//        BuildList()
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
-            WellnessScreen()
+//            BuildList()
+            MovieScreen()
         }
     }
     @Composable

@@ -16,6 +16,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.net.URL
+import kotlinx.coroutines.GlobalScope
+
+private const val BASE_URL = "http://kotlin-book.bignerdranch.com/2e"
+private const val FLIGHT_ENDPOINT = "$BASE_URL/flight"
 
 class HomeFragment : Fragment() {
 
@@ -42,7 +47,11 @@ class HomeFragment : Fragment() {
         val movieListCompose = _binding.movieListButtonForJetPackCompose
 
         movieList.setOnClickListener {
-            destinationToMovieDbListFragment()
+            GlobalScope.launch {
+                println( "INFORMATION: " + fetchInfo())
+            }
+
+//            destinationToMovieDbListFragment()
         }
 
         addMovie.setOnClickListener {
@@ -53,8 +62,12 @@ class HomeFragment : Fragment() {
             destinationToMovieListCompose()
         }
 
+
+
         return view
     }
+
+    fun fetchInfo(): String = URL(FLIGHT_ENDPOINT).readText()
 
     fun destinationCreateNewMovie() {
         val direction = HomeFragmentDirections.actionHomefragmentToCreateNewMovie()

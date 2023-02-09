@@ -11,7 +11,7 @@ import com.example.architecture.test.persistence.entity.Movie
 interface MovieDao {
 
     @Query("SELECT * FROM movie")
-    fun getAllMovies(): LiveData<List<Movie>>
+    fun getAllMovies(): List<Movie>
 
     @Insert
     fun insertNewMovie(movie: Movie)
