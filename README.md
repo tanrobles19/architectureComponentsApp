@@ -85,3 +85,20 @@ Sample: Sonic 2
 
 backdrop_path
 https://image.tmdb.org/t/p/w500/egoyMDLqCxzjnSrWOz50uLlJWmD.jpg
+
+
+Version 3.0
+
+The current version introduce Jetpack Compose, the new declarative UI toolkit of Google.
+
+Adding Jetpack Compose to existing code
+
+https://developer.android.com/jetpack/compose/interop/adding
+
+Composable Functions
+
+It's good practice to provide a modifier to all the composable functions, as it increases reusability.
+
+We created our first Stateless and Stateful Composables functions based on the unidirectional Data Flow Pattern.
+
+Using ViewModel with Compose, the business logic is refactored inside our ViewModel.

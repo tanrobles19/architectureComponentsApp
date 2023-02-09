@@ -23,7 +23,7 @@ class MovieAdapter(val movieViewModel: MovieViewModel) : ListAdapter<Movie, Movi
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.textView.text = movieViewModel.movieList.value?.get(position)?.name ?: "No name"
+//        holder.textView.text = movieViewModel.movieList.value?.get(position)?.name ?: "No name"
     }
 
     class SleepNightDiffCallback : DiffUtil.ItemCallback<Movie>() {

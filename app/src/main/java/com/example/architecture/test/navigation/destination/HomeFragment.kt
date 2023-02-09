@@ -16,6 +16,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.net.URL
+import kotlinx.coroutines.GlobalScope
+
+private const val BASE_URL = "http://kotlin-book.bignerdranch.com/2e"
+private const val FLIGHT_ENDPOINT = "$BASE_URL/flight"
 
 class HomeFragment : Fragment() {
 
@@ -39,17 +44,30 @@ class HomeFragment : Fragment() {
 
         val addMovie = _binding.addNewMoviesButton
         val movieList = _binding.movieListButton
+        val movieListCompose = _binding.movieListButtonForJetPackCompose
 
         movieList.setOnClickListener {
-            destinationToMovieDbListFragment()
+            GlobalScope.launch {
+                println( "INFORMATION: " + fetchInfo())
+            }
+
+//            destinationToMovieDbListFragment()
         }
 
         addMovie.setOnClickListener {
             destinationCreateNewMovie()
         }
 
+        movieListCompose.setOnClickListener {
+            destinationToMovieListCompose()
+        }
+
+
+
         return view
     }
+
+    fun fetchInfo(): String = URL(FLIGHT_ENDPOINT).readText()
 
     fun destinationCreateNewMovie() {
         val direction = HomeFragmentDirections.actionHomefragmentToCreateNewMovie()
@@ -59,6 +77,11 @@ class HomeFragment : Fragment() {
     fun destinationToMovieDbListFragment() {
         val direction = HomeFragmentDirections.actionHomeFragmentToMovieDbListFragment()
         this.view?.findNavController()?.navigate(direction)
+    }
+
+    fun destinationToMovieListCompose() {
+        val destination = HomeFragmentDirections.actionHomeFragmentToMovieListWithCompose()
+        this.view?.findNavController()?.navigate(directions = destination)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
