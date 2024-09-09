@@ -1,10 +1,21 @@
 version: 2
 updates:
   - package-ecosystem: "gradle"
-    directory: "/" # Ruta para el build.gradle de la raíz
+    directory: "/" # Directorio raíz donde está el archivo build.gradle
     schedule:
-      interval: "weekly"
+      interval: "weekly" # Frecuencia de escaneo
+    open-pull-requests-limit: 1 # Limita la cantidad de PRs abiertos a 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+
   - package-ecosystem: "gradle"
-    directory: "/app" # Ruta para el build.gradle de un submódulo
+    directory: "/app" # Subdirectorio donde está el build.gradle del submódulo
     schedule:
       interval: "weekly"
+    open-pull-requests-limit: 1 # Limita la cantidad de PRs abiertos a 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
