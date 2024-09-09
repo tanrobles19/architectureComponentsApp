@@ -3,19 +3,25 @@ updates:
   - package-ecosystem: "gradle"
     directory: "/" # Directorio raíz donde está el archivo build.gradle
     schedule:
-      interval: "weekly" # Frecuencia de escaneo
-    open-pull-requests-limit: 1 # Limita la cantidad de PRs abiertos a 1
-    groups:
-      all-dependencies:
-        patterns:
-          - "*"
-
-  - package-ecosystem: "gradle"
-    directory: "/app" # Subdirectorio donde está el build.gradle del submódulo
-    schedule:
       interval: "weekly"
     open-pull-requests-limit: 1 # Limita la cantidad de PRs abiertos a 1
     groups:
       all-dependencies:
         patterns:
           - "*"
+        commit-message:
+          prefix: "Update"
+          include-scope: true # O puedes poner false si no quieres el scope
+
+  - package-ecosystem: "gradle"
+    directory: "/app" # Subdirectorio donde está el build.gradle del submódulo
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 1
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
+        commit-message:
+          prefix: "Update"
+          include-scope: true
