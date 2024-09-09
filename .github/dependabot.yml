@@ -5,6 +5,6 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "gradle"
-    directory: "/architectureComponentsApp/app" # Ruta para el build.gradle de un submódulo
+    directory: "/app" # Ruta para el build.gradle de un submódulo
     schedule:
       interval: "weekly"
