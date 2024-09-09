@@ -1,6 +1,10 @@
 version: 2
 updates:
   - package-ecosystem: "gradle"
-    directory: "/architectureComponentsApp/app/" # Directorio raíz donde está el archivo build.gradle
+    directory: "/" # Ruta para el build.gradle de la raíz
     schedule:
-      interval: "weekly" # Puedes cambiarlo a "daily", "monthly", etc.
+      interval: "weekly"
+  - package-ecosystem: "gradle"
+    directory: "/architectureComponentsApp/app" # Ruta para el build.gradle de un submódulo
+    schedule:
+      interval: "weekly"
