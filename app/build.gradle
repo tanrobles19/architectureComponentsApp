@@ -7,12 +7,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.example.architecture.test"
         minSdk 24
-        targetSdk 31
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -43,12 +43,14 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion '1.1.1'
+        kotlinCompilerExtensionVersion '1.5.3'
     }
 
     packagingOptions{
         resources.excludes.add("META-INF/*")
     }
+
+    namespace 'com.example.architecture.test'
 
 }
 
@@ -94,6 +96,8 @@ dependencies {
 
     //Image downloading and caching library
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    implementation 'androidx.compose.compiler:compiler:1.5.15'
 
     // Jetpack Compose toolkit dependencies
 
