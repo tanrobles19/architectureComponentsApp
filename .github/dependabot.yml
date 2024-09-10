@@ -1,16 +1,17 @@
 version: 2
 updates:
   - package-ecosystem: "gradle"
-    directory: "/" # Directorio raíz donde está el archivo build.gradle
+    directory: "/" # Raíz donde está el archivo build.gradle
     schedule:
-      interval: "weekly"
+      interval: "weekly" # O el intervalo que prefieras
     open-pull-requests-limit: 1
     commit-message:
-      prefix: "UpdatE Dependencies"
+      prefix: "MSO-TEST"
     groups:
       all-dependencies:
         patterns:
           - "*"
+          - "app/*" # Agrega el subdirectorio de app también
 
   - package-ecosystem: "gradle"
     directory: "/app" # Subdirectorio donde está el build.gradle del submódulo
@@ -18,7 +19,7 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 1
     commit-message:
-      prefix: "Update DependencieS"
+      prefix: "MSO-TEST"
     groups:
       all-dependencies:
         patterns:
