@@ -14,7 +14,7 @@ updates:
           - "app/*" # Agrega el subdirectorio de app también
 
   - package-ecosystem: "gradle"
-    directory: "/app" # Subdirectorio donde está el build.gradle del submódulo
+    directory: "/app"
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 1
